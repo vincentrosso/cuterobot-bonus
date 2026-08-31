@@ -1,0 +1,150 @@
+{
+  "_comment": "VERIFY every offer at covers.com or each book's CO promo page before betting. Offers rotate monthly. verified date reflects last check.",
+  "conversionRateDefault": 0.70,
+  "books": [
+    {
+      "name": "BetMGM",
+      "offer": "$1,500 first-bet safety net + $50 rewards",
+      "promoType": "second_chance",
+      "deposit": 1500,
+      "estExtractLow": 450,
+      "estExtractHigh": 1050,
+      "states": "all-major",
+      "terms": "Bonus bets returned only if first bet loses. Full $1,500 version available in CO/AZ/OH/NC; reduced to ~$150 in PA/NJ/MI/WV/NV/NY.",
+      "verified": "2026-06",
+      "notes": "Bet the underdog. Slowest to credit bonus (up to 72h)."
+    },
+    {
+      "name": "Fanatics",
+      "offer": "10 x $100/day bet match in FanCash (10 consecutive days)",
+      "promoType": "multi_day_match",
+      "deposit": 1000,
+      "estExtractLow": 500,
+      "estExtractHigh": 700,
+      "states": "all-major",
+      "terms": "Requires 10 consecutive days of in-state betting. FanCash usable on bets or merch.",
+      "verified": "2026-06",
+      "notes": "Multi-day — only viable on an extended stay. Skip on test run."
+    },
+    {
+      "name": "bet365",
+      "offer": "Bet $10 → $365 bonus bets (win or lose)",
+      "promoType": "bonus_bets",
+      "deposit": 10,
+      "estExtractLow": 105,
+      "estExtractHigh": 255,
+      "states": "all-major",
+      "terms": "Seen as low as $150 in some states/periods. VERIFY.",
+      "verified": "2026-06",
+      "notes": "Low-risk qualifier, no hedge needed at $10 stake."
+    },
+    {
+      "name": "FanDuel",
+      "offer": "$5/day x 7 days → $350 bonus bets",
+      "promoType": "multi_day_bonus",
+      "deposit": 35,
+      "estExtractLow": 245,
+      "estExtractHigh": 245,
+      "states": "all-major",
+      "terms": "7 consecutive in-state days.",
+      "verified": "2026-06",
+      "notes": "Multi-day — skip on test run."
+    },
+    {
+      "name": "Caesars",
+      "offer": "Bet $1 → 10 x 100% profit boost tokens ($25 max/boost)",
+      "promoType": "profit_boost",
+      "deposit": 1,
+      "estExtractLow": 200,
+      "estExtractHigh": 400,
+      "states": "all-major",
+      "terms": "Tokens expire 14 days after issue.",
+      "verified": "2026-06",
+      "notes": "Use boosts on near-even games. Convert on trip 2 if needed."
+    },
+    {
+      "name": "Hard Rock Bet",
+      "offer": "Double winnings on first 10 bets ($50 max each)",
+      "promoType": "profit_boost",
+      "deposit": 500,
+      "estExtractLow": 200,
+      "estExtractHigh": 350,
+      "states": ["NJ", "PA", "OH", "AZ", "CO", "IN", "TN", "VA", "FL"],
+      "terms": "Verify CO availability.",
+      "verified": "2026-06",
+      "notes": ""
+    },
+    {
+      "name": "DraftKings",
+      "offer": "Bet $5 → $200 bonus bets instantly",
+      "promoType": "bonus_bets",
+      "deposit": 5,
+      "estExtractLow": 130,
+      "estExtractHigh": 140,
+      "states": "all-major",
+      "terms": "Credits instantly — the one same-day conversion possible on a day trip.",
+      "verified": "2026-06",
+      "notes": "Best proof-of-loop book for a test run."
+    },
+    {
+      "name": "ESPN BET",
+      "offer": "Bet $10 → ~$150 bonus bets",
+      "promoType": "bonus_bets",
+      "deposit": 10,
+      "estExtractLow": 95,
+      "estExtractHigh": 100,
+      "states": "all-major",
+      "terms": "Verify current terms.",
+      "verified": "2026-06",
+      "notes": ""
+    },
+    {
+      "name": "BetRivers",
+      "offer": "$500 second-chance bet",
+      "promoType": "second_chance",
+      "deposit": 500,
+      "estExtractLow": 180,
+      "estExtractHigh": 350,
+      "states": "all-major",
+      "terms": "Bonus if first bet loses.",
+      "verified": "2026-06",
+      "notes": "Bet underdog. Good test-run book at moderate float."
+    },
+    {
+      "name": "Circa Sports",
+      "offer": "Varies — CO online registration",
+      "promoType": "varies",
+      "deposit": 0,
+      "estExtractLow": 50,
+      "estExtractHigh": 200,
+      "states": ["CO", "IL"],
+      "terms": "CO allows online signup (unlike NV). Verify current offer.",
+      "verified": "2026-06",
+      "notes": "CO regional — bonus beyond the majors."
+    },
+    {
+      "name": "SuperBook",
+      "offer": "Varies — CO online",
+      "promoType": "varies",
+      "deposit": 0,
+      "estExtractLow": 50,
+      "estExtractHigh": 150,
+      "states": ["CO", "NJ", "OH", "AZ"],
+      "terms": "Verify current offer.",
+      "verified": "2026-06",
+      "notes": "CO regional."
+    },
+    {
+      "name": "Betfred",
+      "offer": "Small welcome offer",
+      "promoType": "varies",
+      "deposit": 0,
+      "estExtractLow": 25,
+      "estExtractHigh": 100,
+      "states": ["CO", "OH", "IA", "AZ"],
+      "terms": "Verify current offer and CO availability.",
+      "verified": "2026-06",
+      "notes": "CO regional, small."
+    }
+  ]
+}

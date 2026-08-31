@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Guide — bonus extraction flow &amp; hedge math</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">◆ bonus extraction</a>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="guide.html" class="active">Guide</a>
+      <a href="tracker.html">Tracker</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>The guide</h1>
+  <p class="lede">The whole loop, the hedge math, per-book steps, and the two-trip structure.
+    Nothing here places a bet — you do that by hand at each book.</p>
+
+  <div class="banner">
+    <strong>Verify first.</strong> Every offer below is seeded from planning notes
+    (last checked <span data-books-verified>—</span>) and rotates monthly. Re-check each
+    book's Colorado promo page and covers.com before you bet a cent.
+  </div>
+
+  <h2>The hedge, in one paragraph</h2>
+  <p>Every play is two straight bets on the same game at two different books. Put the
+    <strong>underdog on the promo book</strong> — you <em>want</em> the qualifier to lose so the
+    "money back" bonus triggers. Hedge the favorite on a second book. Size the stakes so both
+    outcomes land within ~$50 of each other. When the bonus credits, repeat the move to convert
+    bonus bets to cash: bonus bet on a big underdog (+200 to +300 converts best), cash hedge on
+    the favorite elsewhere. DarkHorse Odds' Bonus Bet Finder computes these pairs; the
+    <a href="tracker.html">tracker</a> replicates the math so it doesn't depend on a subscription.</p>
+
+  <h3>Why it works</h3>
+  <p>Convert each book's American odds to decimal: <code>d = 1 + (odds/100)</code> for positive,
+    <code>d = 1 + (100/|odds|)</code> for negative. A stake <span class="num">S</span> on the promo
+    book at decimal <span class="num">d<sub>A</sub></span>, hedged with stake
+    <span class="num">H</span> at <span class="num">d<sub>B</sub></span> on the other side:</p>
+  <div class="card">
+    <div class="result" style="background:var(--bg-input);border-color:var(--border)">
+      <div class="row"><span>If the promo side wins</span><span class="num">S·(d<sub>A</sub>−1) − H</span></div>
+      <div class="row"><span>If the promo side loses</span><span class="num">−S + H·(d<sub>B</sub>−1) + (bonus × conversion rate)</span></div>
+    </div>
+    <p class="dim" style="margin-bottom:0">For a plain "money back if it loses" offer, set
+      <span class="num">H = (S·d<sub>A</sub> − bonus·rate) / d<sub>B</sub></span> and both branches
+      net the same — that equal number is your guaranteed floor. For a bonus-bet conversion
+      (stake not returned), set <span class="num">H = S·(d<sub>A</sub>−1) / d<sub>B</sub></span>.
+      Conversion rate on a bonus bet is typically 0.66–0.72.</p>
+  </div>
+
+  <h3>Quick hedge calculator</h3>
+  <p class="dim">Same engine as the tracker. Nothing is saved here.</p>
+  <div class="card">
+    <form id="calc" class="form-grid">
+      <div class="field">
+        <label>Bet type</label>
+        <select name="betType">
+          <option value="qualifying">Qualifying (money back if it loses)</option>
+          <option value="bonusConversion">Bonus-bet conversion (stake not returned)</option>
+          <option value="profitBoost">Profit boost</option>
+        </select>
+      </div>
+      <div class="field"><label>Promo-book odds (e.g. +170)</label><input name="promoOdds" value="+170"></div>
+      <div class="field"><label>Hedge-book odds (e.g. -190)</label><input name="hedgeOdds" value="-190"></div>
+      <div class="field"><label>Stake / bonus-bet size ($)</label><input name="stake" type="number" value="1500"></div>
+      <div class="field"><label>Bonus face value ($)</label><input name="bonusValue" type="number" value="1500"></div>
+      <div class="field"><label>Conversion rate</label><input name="conversionRate" type="number" step="0.01" value="0.70"></div>
+      <div class="field"><label>Boost % (profit boost only)</label><input name="boostPct" type="number" value="0"></div>
+    </form>
+    <div id="calc-out" class="result"></div>
+  </div>
+
+  <h2>Trip 1 — Denver, arrival day</h2>
+  <ol class="steps">
+    <li class="step"><strong>Bank check before you leave.</strong> Confirm your debit card is a
+      normal bank card (Ally or similar — not Chime/prepaid) and that gambling MCC codes aren't
+      blocked. Call the bank if unsure.</li>
+    <li class="step"><strong>Cross into CO, confirm geolocation.</strong> Each app checks your
+      location on registration and on every bet. Denver is well inside the boundary; don't try to
+      register from the I-70 shoulder.</li>
+    <li class="step"><strong>Register + KYC every book.</strong> Real name, SSN last-4, address.
+      Do all nine majors plus Circa / SuperBook / Betfred. Use referral links between your own
+      accounts only if you have a second person — never self-refer.</li>
+    <li class="step"><strong>Deposit the minimum each book needs</strong> (see table below).
+      BetMGM and the $500 second-chance books are the float-heavy ones — sequence BetMGM after
+      BetRivers settles if you're running the $1,000 test float.</li>
+    <li class="step"><strong>Place qualifying bets on same-day games.</strong> Underdog on the
+      promo book, favorite hedge on another book, stakes from the calculator. MLB afternoon games
+      and live World Cup (through July 19, 2026) settle same-day.</li>
+    <li class="step"><strong>Do the one instant conversion: DraftKings.</strong> Bet $5, get $200
+      in bonus bets immediately, hedge a +200–300 underdog with them right away.</li>
+    <li class="step"><strong>Log every leg in the tracker</strong> as you go — book, side, odds,
+      stake, hedge. The parking lot is the worst place to reconstruct this later.</li>
+  </ol>
+
+  <h2>Trip 2 — any CO stop, 1–2 weeks later</h2>
+  <ol class="steps">
+    <li class="step"><strong>Convert credited bonus bets.</strong> For each book with bonus bets
+      sitting in the balance: bonus bet on a big underdog (+200 to +300), cash hedge on the
+      favorite at another book. The calculator's "bonus conversion" mode sizes the hedge.</li>
+    <li class="step"><strong>Spend Caesars profit-boost tokens.</strong> They expire 14 days after
+      issue. Use them on near-even games, hedged.</li>
+    <li class="step"><strong>Withdraw everything.</strong> Back to the same funding source.
+      Expect 1–5 business days per book.</li>
+    <li class="step"><strong>Reconcile the tracker.</strong> Fill in <code>cashRealized</code> and
+      <code>grossWinnings</code> per row. Gross winnings is the tax number — every winning leg,
+      not the net.</li>
+  </ol>
+
+  <h2>Per-book SOP</h2>
+  <div data-books-table
+       data-books-cols="name,offer,promoType,deposit,estExtract,notes"></div>
+
+  <h3>Book-specific notes</h3>
+  <ul>
+    <li><strong>BetMGM</strong> — bet the underdog. Slowest to credit (up to 72h). Full $1,500
+      version needs CO/AZ/OH/NC; it drops to ~$150 in PA/NJ/MI/WV/NV/NY.</li>
+    <li><strong>Fanatics / FanDuel</strong> — multi-day (10 and 7 consecutive in-state days).
+      Skip on a test run; only worth it on an extended stay or trip two.</li>
+    <li><strong>bet365</strong> — $10 stake is small enough that no hedge is needed on the
+      qualifier. Just take the $365 in bonus bets and convert on trip two.</li>
+    <li><strong>Caesars</strong> — the $1 bet is trivial; the value is the 10 profit-boost tokens.
+      14-day expiry, $25 max boost each. Convert on trip two.</li>
+    <li><strong>Hard Rock Bet</strong> — "double winnings on first 10 bets", $50 max each.
+      Verify CO availability specifically — its state list is narrower than the others.</li>
+    <li><strong>DraftKings</strong> — the proof-of-loop book. Instant credit, so it's the one
+      full loop you can close on day one.</li>
+    <li><strong>ESPN BET / BetRivers</strong> — standard bet-and-get / second-chance. Underdog on
+      the promo side.</li>
+  </ul>
+
+  <h2>Game selection rules</h2>
+  <ul>
+    <li>Any game listed on both books works. Tighter odds = smaller hedge cost = more profit.
+      The tool picks the tightest pair.</li>
+    <li>Qualifiers want the tightest available odds. Conversions want a big underdog (+200–300).</li>
+    <li>Must settle same-day if you're converting on the same trip — MLB afternoons, live World Cup.</li>
+    <li>Avoid low-liquidity markets (table tennis, obscure props). Wide spreads plus weird
+      staking patterns is exactly what triggers account flags.</li>
+  </ul>
+
+  <hr>
+  <p><a class="btn" href="tracker.html">Open the tracker</a></p>
+</main>
+
+<footer class="site">
+  <div class="wrap">Personal notes — not advice. Verify every offer before betting.</div>
+</footer>
+
+<script src="js/tracker.js"></script>
+<script src="js/data.js"></script>
+<script>
+  // Inline calculator — reuses computeBet() from tracker.js.
+  (function () {
+    var form = document.getElementById('calc');
+    var out = document.getElementById('calc-out');
+    if (!form || !out || typeof computeBet !== 'function') return;
+    function render() {
+      var f = Object.fromEntries(new FormData(form).entries());
+      var c = computeBet({
+        betType: f.betType,
+        promoOdds: f.promoOdds,
+        hedgeOdds: f.hedgeOdds,
+        stake: Number(f.stake),
+        bonusValue: Number(f.bonusValue),
+        conversionRate: Number(f.conversionRate),
+        boostPct: Number(f.boostPct),
+      });
+      var neg = !isFinite(c.guaranteedFloor) || c.guaranteedFloor < 0;
+      out.className = 'result' + (neg ? ' negative' : '');
+      if (!isFinite(c.hedgeStake)) { out.innerHTML = '<div class="dim">' + (c.note || 'Enter odds + stake.') + '</div>'; return; }
+      var rows = [
+        ['Recommended hedge stake', money(c.hedgeStake)],
+        ['If promo side wins', money(c.profitIfPromoWins)],
+        ['If promo side loses', money(c.profitIfPromoLoses)],
+      ];
+      if (isFinite(c.qualifyingLoss)) rows.push(['Out-of-pocket to trigger bonus', money(c.qualifyingLoss)]);
+      out.innerHTML =
+        '<div class="dim" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.04em">Guaranteed floor</div>' +
+        '<div class="big ' + (neg ? 'neg' : 'pos') + '">' + money(c.guaranteedFloor) + '</div>' +
+        rows.map(function (r) { return '<div class="row"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>'; }).join('') +
+        '<div class="dim" style="margin-top:.5rem;font-size:.82rem">' + (c.note || '') + '</div>';
+    }
+    form.addEventListener('input', render);
+    form.addEventListener('change', render);
+    render();
+  })();
+</script>
+</body>
+</html>

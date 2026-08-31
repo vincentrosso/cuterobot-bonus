@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>bonus extraction — notes &amp; tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">◆ bonus extraction</a>
+    <nav>
+      <a href="index.html" class="active">Overview</a>
+      <a href="guide.html">Guide</a>
+      <a href="tracker.html">Tracker</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Sportsbook bonus extraction — my notes</h1>
+  <p class="lede">
+    Personal tool. California has no legal online sportsbook, so the play is: drive to a legal
+    state, claim each book's welcome bonus once, and hedge every bet across two books so the
+    outcome is locked in regardless of who wins. Legal, openly taught (DarkHorse Odds, ProfitDuel,
+    OddsJam), and strictly one-time per person — welcome bonuses don't repeat.
+  </p>
+
+  <div class="banner blocking">
+    <strong>Blocking before any real money:</strong> get the CPA answer on gambling taxes
+    (gross winnings are taxable income; the losing hedge leg only deducts on Schedule A if you
+    itemize). Under the standard deduction this can eat 30–40%+ of the profit. Also re-verify
+    every offer at covers.com — they rotate monthly.
+  </div>
+
+  <h2>Honest reality check</h2>
+  <div class="card">
+    <div class="grid2">
+      <div>
+        <h3 style="margin-top:0">Solo, one working day</h3>
+        <p class="num" style="font-size:1.4rem;margin:.2rem 0">~$1,500–1,700 net</p>
+        <p class="dim">Skip the multi-day promos. After CA tax (~9.3% marginal, worldwide
+          income, credit for tax paid to the betting state) — and <em>pending</em> the
+          itemization question above.</p>
+      </div>
+      <div>
+        <h3 style="margin-top:0">With multi-day promos (2 trips)</h3>
+        <p class="num" style="font-size:1.4rem;margin:.2rem 0">~$2,200–2,500 net</p>
+        <p class="dim">FanDuel's 7-day and Fanatics' 10-day need consecutive in-state days,
+          so this means a longer stay or a second trip.</p>
+      </div>
+    </div>
+    <hr>
+    <p><strong>BetMGM, honestly.</strong> The "70% of $1,500" shorthand is wrong. Hedging the
+      qualifying bet costs money, so the guaranteed floor is roughly <span class="num">$450–750</span>.
+      The <span class="num">~$1,050</span> figure only lands in the branch where the first bet
+      loses and the full bonus triggers. The tracker shows both branches.</p>
+    <p><strong>Day one is not payday.</strong> Bonus bets credit only after the qualifying bet
+      settles; a second in-state hedged bet then converts them to cash. A noon arrival gets
+      registration, KYC, qualifiers, and maybe the one instant DraftKings conversion —
+      real cash day-one is more like <span class="num">$100–150</span>. The rest needs trip two.</p>
+    <p><strong>This is not a business.</strong> One-time cash grab. Multi-person only adds
+      refer-a-friend bonuses (~$350–700/person), and everyone runs their own independent
+      accounts — no pooling, no splitting, no coordination.</p>
+  </div>
+
+  <h2>The plan</h2>
+  <p><strong>State: Colorado.</strong> Denver, arrive ~noon. CO has the full BetMGM $1,500
+    offer, all nine major books, plus regionals (Circa, SuperBook, Betfred) that allow online
+    signup. Arizona (Ehrenberg on I-10, ~3 hrs) is the fallback. Nevada is out — in-person
+    casino registration, weak bonuses, aggressive limiting.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">Trip 1 — Denver</h3>
+      <ul>
+        <li>Register all books + pass KYC</li>
+        <li>Place qualifying bets and hedges on same-day games</li>
+        <li>Start FanDuel 7-day / Fanatics 10-day if staying</li>
+        <li>Do the one instant DraftKings conversion</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Trip 2 — 1–2 weeks later</h3>
+      <ul>
+        <li>Convert credited bonus bets to cash (hedged)</li>
+        <li>Spend Caesars profit-boost tokens (14-day expiry)</li>
+        <li>Withdraw everything</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The nine majors</h2>
+  <p class="dim">Claim once each, nationwide — all burned in CO. Offers rotate; last verified
+    <span data-books-verified>—</span>. <a href="guide.html">Full per-book SOP →</a></p>
+  <div data-books-table data-books-filter="major"
+       data-books-cols="name,offer,deposit,estExtract,verified"></div>
+
+  <h3>Colorado regionals</h3>
+  <div data-books-table data-books-filter="regional"
+       data-books-cols="name,offer,states,estExtract,verified"></div>
+
+  <h2>Guardrails</h2>
+  <ul>
+    <li>Never bet both sides on the <em>same</em> book — that's the one pattern that gets bonuses voided.</li>
+    <li>Stick to big liquid markets (MLB, World Cup, NBA). Obscure props draw flags.</li>
+    <li>Banking: Chime / prepaid gets rejected by many books. Use Ally or a normal bank debit;
+      unlock gambling MCC codes if the bank blocks them.</li>
+    <li>Worst case is a confiscated bonus and wasted time — not lost capital. Books can limit
+      accounts or void bonuses per their T&amp;Cs (Caesars explicitly bars "exploitative" patterns).</li>
+    <li>Float: ~$1,500 solo captures BetMGM if sized down; ~$3,000 for full-size simultaneous
+      bets. Money returns as bets settle (24–72 hrs). Test run: $1,000, 6 books, sequence
+      BetMGM after BetRivers settles.</li>
+  </ul>
+
+  <hr>
+  <p><a class="btn" href="guide.html">Read the guide</a>
+     <a class="btn ghost" href="tracker.html">Open the tracker</a></p>
+
+  <div class="card">
+    <h3 style="margin-top:0">Scope — what this is not</h3>
+    <p class="dim">No automated betting. No credential storage. No scraping. This is a
+      calculator, a logger, and a guide. Every bet is placed by hand at each sportsbook.
+      All data stays in this browser's localStorage — no backend, no analytics.</p>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">Personal notes — not advice. Verify every offer before betting.
+    Data is local to this browser.</div>
+</footer>
+
+<script src="js/data.js"></script>
+</body>
+</html>
