@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Checklist — do these in order</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .job { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.9rem 0; }
+    .job h3 { margin: 0 0 0.15rem; font-size: 1.05rem; }
+    .job .meta { font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); margin-bottom: 0.6rem; }
+    .job .meta a { color: var(--link); }
+    .check { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.3rem 0; font-size: 0.95rem; line-height: 1.45; }
+    .check input { width: 1.15rem; height: 1.15rem; flex-shrink: 0; margin-top: 0.15rem; accent-color: var(--accent); }
+    .check .amt { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--accent); }
+    .check.done label { text-decoration: line-through; color: var(--text-dim); }
+    .phase { margin: 2rem 0 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border); }
+    .phase small { display: block; color: var(--text-dim); font-weight: 400; font-size: 0.85rem; margin-top: 0.15rem; }
+    .rule { font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); }
+    .progress { position: sticky; top: 52px; background: var(--bg); padding: 0.6rem 0; z-index: 5; font-family: var(--mono); font-size: 0.9rem; }
+    .progress .bar { height: 6px; background: var(--bg-input); border-radius: 999px; overflow: hidden; margin-top: 0.3rem; }
+    .progress .bar > i { display: block; height: 100%; background: var(--accent); width: 0; transition: width 0.2s; }
+    @media print {
+      header.site, footer.site, .progress, #reset, .noprint { display: none !important; }
+      .job { break-inside: avoid; border-color: #999; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">◆ bonus extraction</a>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="guide.html">Guide</a>
+      <a href="checklist.html" class="active">Checklist</a>
+      <a href="tracker.html">Tracker</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Checklist — top to bottom, no skipping</h1>
+  <p class="rule">Two fixed rules, every bet: put the <strong>underdog on the promo book</strong>,
+    put the <strong>hedge on the favorite at a different book</strong>. Big liquid games only
+    (MLB, NBA, World Cup). The <a href="tracker.html">tracker</a> gives you the exact hedge
+    dollar from the real odds — the amounts here assume roughly +150 / −180 and round up.</p>
+  <p class="rule noprint">Signup links are each book's Colorado page — <strong>verify the offer
+    on arrival</strong>, they rotate. Check boxes save in this browser.
+    <button id="reset" class="btn ghost sm" type="button">reset all</button>
+    <button class="btn ghost sm noprint" type="button" onclick="window.print()">print</button></p>
+
+  <div class="progress">
+    <span id="ptext">0 / 0 done</span>
+    <div class="bar"><i id="pbar"></i></div>
+  </div>
+
+  <div class="phase"><h2>Phase 1 — tiny & instant. Do first. No hedge.</h2>
+    <small>Small qualifying bet, collect the bonus, walk away. Convert the bonus bets on trip 2.</small></div>
+
+  <div class="job" data-job>
+    <h3>DraftKings</h3>
+    <div class="meta">deposit <b>$5</b> · <a href="https://sportsbook.draftkings.com/" target="_blank" rel="noopener">sportsbook.draftkings.com</a></div>
+    <div class="check"><input type="checkbox" id="dk1"><label for="dk1">Sign up + deposit <span class="amt">$5</span></label></div>
+    <div class="check"><input type="checkbox" id="dk2"><label for="dk2">Bet <span class="amt">$5</span> on anything — <span class="amt">$200</span> in bonus bets lands instantly</label></div>
+    <div class="check"><input type="checkbox" id="dk3"><label for="dk3">Convert now: bonus bet <span class="amt">$200</span> on a <b>+250 underdog</b></label></div>
+    <div class="check"><input type="checkbox" id="dk4"><label for="dk4">Hedge <span class="amt">~$185</span> cash on the <b>favorite</b> at another funded book</label></div>
+    <div class="check"><input type="checkbox" id="dk5"><label for="dk5">Log both legs in the tracker</label></div>
+  </div>
+
+  <div class="job" data-job>
+    <h3>bet365</h3>
+    <div class="meta">deposit <b>$10</b> · <a href="https://www.bet365.com/" target="_blank" rel="noopener">bet365.com</a></div>
+    <div class="check"><input type="checkbox" id="b365a"><label for="b365a">Sign up + deposit <span class="amt">$10</span></label></div>
+    <div class="check"><input type="checkbox" id="b365b"><label for="b365b">Bet <span class="amt">$10</span> on anything — no hedge needed</label></div>
+    <div class="check"><input type="checkbox" id="b365c"><label for="b365c"><span class="amt">$365</span> in bonus bets lands · convert on trip 2</label></div>
+    <div class="check"><input type="checkbox" id="b365d"><label for="b365d">Log it in the tracker</label></div>
+  </div>
+
+  <div class="job" data-job>
+    <h3>ESPN BET</h3>
+    <div class="meta">deposit <b>$10</b> · <a href="https://espnbet.com/" target="_blank" rel="noopener">espnbet.com</a></div>
+    <div class="check"><input type="checkbox" id="espna"><label for="espna">Sign up + deposit <span class="amt">$10</span></label></div>
+    <div class="check"><input type="checkbox" id="espnb"><label for="espnb">Bet <span class="amt">$10</span> on anything — no hedge needed</label></div>
+    <div class="check"><input type="checkbox" id="espnc"><label for="espnc"><span class="amt">~$150</span> in bonus bets lands · convert on trip 2</label></div>
+    <div class="check"><input type="checkbox" id="espnd"><label for="espnd">Log it in the tracker</label></div>
+  </div>
+
+  <div class="job" data-job>
+    <h3>Caesars</h3>
+    <div class="meta">deposit <b>$1</b> · <a href="https://sportsbook.caesars.com/" target="_blank" rel="noopener">sportsbook.caesars.com</a></div>
+    <div class="check"><input type="checkbox" id="cza"><label for="cza">Sign up + deposit <span class="amt">$1</span></label></div>
+    <div class="check"><input type="checkbox" id="czb"><label for="czb">Bet <span class="amt">$1</span> on anything — no hedge needed</label></div>
+    <div class="check"><input type="checkbox" id="czc"><label for="czc">Collect <b>10 profit-boost tokens</b> · use them trip 2 (expire 14 days after issue)</label></div>
+    <div class="check"><input type="checkbox" id="czd"><label for="czd">Log it in the tracker</label></div>
+  </div>
+
+  <div class="phase"><h2>Phase 2 — second-chance. Real money, real hedge.</h2>
+    <small>Bet the underdog on the promo book (you want it to lose so the money-back bonus triggers), hedge the favorite elsewhere.</small></div>
+
+  <div class="job" data-job>
+    <h3>BetRivers <span class="rule">— do this before BetMGM</span></h3>
+    <div class="meta">deposit <b>$500</b> · <a href="https://co.betrivers.com/" target="_blank" rel="noopener">co.betrivers.com</a></div>
+    <div class="check"><input type="checkbox" id="bra"><label for="bra">Sign up + deposit <span class="amt">$500</span></label></div>
+    <div class="check"><input type="checkbox" id="brb"><label for="brb">Bet <span class="amt">$500</span> on the <b>underdog</b>, tight odds</label></div>
+    <div class="check"><input type="checkbox" id="brc"><label for="brc">Hedge <span class="amt">~$650</span> on the <b>favorite</b> at another funded book</label></div>
+    <div class="check"><input type="checkbox" id="brd"><label for="brd">Log both legs · wait for it to settle, cash comes back</label></div>
+  </div>
+
+  <div class="job" data-job>
+    <h3>BetMGM <span class="rule">— after BetRivers cash is back</span></h3>
+    <div class="meta">deposit <b>$1,500</b> · <a href="https://sports.co.betmgm.com/" target="_blank" rel="noopener">sports.co.betmgm.com</a></div>
+    <div class="check"><input type="checkbox" id="mgma"><label for="mgma">Sign up + deposit <span class="amt">$1,500</span></label></div>
+    <div class="check"><input type="checkbox" id="mgmb"><label for="mgmb">Bet <span class="amt">$1,500</span> on the <b>underdog</b>, tight odds</label></div>
+    <div class="check"><input type="checkbox" id="mgmc"><label for="mgmc">Hedge <span class="amt">~$1,950</span> on the <b>favorite</b> elsewhere</label></div>
+    <div class="check"><input type="checkbox" id="mgmd"><label for="mgmd">Log both legs · bonus bets take up to 72h if the bet loses</label></div>
+  </div>
+
+  <div class="job" data-job>
+    <h3>Hard Rock Bet</h3>
+    <div class="meta">deposit <b>$500</b> · <a href="https://app.hardrock.bet/" target="_blank" rel="noopener">hardrock.bet</a> · <span class="rule">verify CO availability</span></div>
+    <div class="check"><input type="checkbox" id="hra"><label for="hra">Sign up + deposit <span class="amt">$500</span></label></div>
+    <div class="check"><input type="checkbox" id="hrb"><label for="hrb">First 10 bets: winnings doubled, <span class="amt">$50</span> max each — bet <span class="amt">~$50</span> each on near-even games</label></div>
+    <div class="check"><input type="checkbox" id="hrc"><label for="hrc">Hedge each on the other side at another book (tracker sizes it)</label></div>
+    <div class="check"><input type="checkbox" id="hrd"><label for="hrd">Log every leg</label></div>
+  </div>
+
+  <div class="phase"><h2>Phase 3 — multi-day. Only if staying, or on trip 2.</h2>
+    <small>These need consecutive in-state days. Skip on a day trip / test run.</small></div>
+
+  <div class="job" data-job>
+    <h3>FanDuel <span class="rule">— 7 consecutive days</span></h3>
+    <div class="meta">deposit <b>$35</b> · <a href="https://sportsbook.fanduel.com/" target="_blank" rel="noopener">sportsbook.fanduel.com</a></div>
+    <div class="check"><input type="checkbox" id="fda"><label for="fda">Sign up + deposit <span class="amt">$35</span></label></div>
+    <div class="check"><input type="checkbox" id="fdb"><label for="fdb">Bet <span class="amt">$5</span> in-state each day × 7 → <span class="amt">$350</span> bonus bets</label></div>
+    <div class="check"><input type="checkbox" id="fdc"><label for="fdc">Convert the <span class="amt">$350</span> hedged · log it</label></div>
+  </div>
+
+  <div class="job" data-job>
+    <h3>Fanatics <span class="rule">— 10 consecutive days</span></h3>
+    <div class="meta">deposit up to <b>$1,000</b> · <a href="https://sportsbook.fanatics.com/" target="_blank" rel="noopener">sportsbook.fanatics.com</a></div>
+    <div class="check"><input type="checkbox" id="fna"><label for="fna">Sign up + deposit (match what you'll bet)</label></div>
+    <div class="check"><input type="checkbox" id="fnb"><label for="fnb">Bet <span class="amt">$100</span> in-state each day × 10 → <span class="amt">$1,000</span> FanCash matched</label></div>
+    <div class="check"><input type="checkbox" id="fnc"><label for="fnc">Convert the FanCash hedged · log it</label></div>
+  </div>
+
+  <div class="phase"><h2>CO regionals — optional bonus. Small.</h2>
+    <small>Online signup allowed in Colorado. Claim whatever the current offer is; hedge anything real.</small></div>
+
+  <div class="job" data-job>
+    <h3>Circa · SuperBook · Betfred</h3>
+    <div class="meta"><a href="https://www.circasports.com/" target="_blank" rel="noopener">circasports.com</a> · <a href="https://co.superbook.com/" target="_blank" rel="noopener">superbook.com</a> · <a href="https://www.betfred.com/co" target="_blank" rel="noopener">betfred.com/co</a></div>
+    <div class="check"><input type="checkbox" id="rga"><label for="rga">Circa — sign up, check the offer, claim + hedge if worthwhile</label></div>
+    <div class="check"><input type="checkbox" id="rgb"><label for="rgb">SuperBook — same</label></div>
+    <div class="check"><input type="checkbox" id="rgc"><label for="rgc">Betfred — same</label></div>
+  </div>
+
+  <div class="phase"><h2>Trip 2 — convert & withdraw</h2></div>
+  <div class="job" data-job>
+    <h3>Wrap up</h3>
+    <div class="check"><input type="checkbox" id="w1"><label for="w1">Convert every credited bonus bet: bonus on a <b>+200–300 underdog</b>, cash hedge on the favorite elsewhere</label></div>
+    <div class="check"><input type="checkbox" id="w2"><label for="w2">Spend all 10 Caesars boost tokens (near-even games, hedged)</label></div>
+    <div class="check"><input type="checkbox" id="w3"><label for="w3">Withdraw every balance to the same bank card</label></div>
+    <div class="check"><input type="checkbox" id="w4"><label for="w4">Fill in cashRealized + grossWinnings on every tracker row</label></div>
+  </div>
+</main>
+
+<footer class="site"><div class="wrap">Verify every offer on arrival. Amounts are round-number estimates — the tracker has the exact hedge.</div></footer>
+
+<script>
+  (function () {
+    var KEY = 'cuterobot_checklist_v1';
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.check input[type=checkbox]'));
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+
+    function persist() {
+      var s = {};
+      boxes.forEach(function (b) { if (b.checked) s[b.id] = 1; });
+      try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+    }
+    function paint(b) { b.closest('.check').classList.toggle('done', b.checked); }
+    function progress() {
+      var done = boxes.filter(function (b) { return b.checked; }).length;
+      document.getElementById('ptext').textContent = done + ' / ' + boxes.length + ' done';
+      document.getElementById('pbar').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
+    }
+    boxes.forEach(function (b) {
+      b.checked = !!saved[b.id];
+      paint(b);
+      b.addEventListener('change', function () { paint(b); persist(); progress(); });
+    });
+    document.getElementById('reset').addEventListener('click', function () {
+      if (!confirm('Uncheck everything?')) return;
+      boxes.forEach(function (b) { b.checked = false; paint(b); });
+      persist(); progress();
+    });
+    progress();
+  })();
+</script>
+</body>
+</html>

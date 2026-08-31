@@ -33,6 +33,7 @@ for the original spec. This file is the short version.
 ```
 index.html      landing + honest economics / reality check (first-person, no hype)
 guide.html      the loop, hedge math, per-book SOP, two-trip structure, inline calculator
+checklist.html  dead-simple ordered checkbox run-sheet — per book: signup URL, who to bet, how much. localStorage key cuterobot_checklist_v1. self-contained (inline <style>+<script>), print-friendly
 tracker.html    the tool: log bets, auto hedge stakes, P&L, gross-winnings (tax) column, CSV export
 css/style.css   one file. dark, high-contrast, monospace numerics, mobile-first
 js/tracker.js   hedge math (toDecimal / parseOdds / computeBet) + tracker UI + localStorage
