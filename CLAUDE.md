@@ -79,20 +79,44 @@ python3 -m http.server 8080   # then http://localhost:8080
 
 `file://` blocks `fetch`, so `js/data.js` needs the HTTP server to load `books.json`.
 
-## Deploy
+## Deploy — LIVE as of 2026-08-31
 
-Static → GitHub Pages or the cuterobot.tv host. **Vincent runs git push himself** (auth stays
-with him) — never paste tokens into an agent. See `README.md` for the exact commands.
+- **GitHub Pages** on `github.com/vincentrosso/cuterobot-bonus`, source `main` / root. Every
+  push to `main` redeploys (~1 min build). `CNAME` file in the repo root pins the custom domain.
+- **Custom domain:** `bonus.cuterobot.tv` — a **subdomain**, NOT the apex. `cuterobot.tv` itself
+  stays on the Hetzner VM serving the Cute Robot video app; this project never touched the apex
+  / `www` / `api` DNS records.
+- **DNS:** Cloudflare zone `cuterobot.tv` (id `7c549c4e03f013bef906af55e751e2e9`), record
+  `CNAME bonus → vincentrosso.github.io`, **proxied OFF (DNS-only / grey cloud)** so GitHub
+  serves its own Let's Encrypt cert directly. Token used: `$TF_VAR_cloudflare_api_token`
+  (Zone:DNS:Edit).
+- **HTTPS enforcement:** enable once GitHub finishes provisioning the cert (can lag hours):
+  ```bash
+  gh api -X PUT repos/vincentrosso/cuterobot-bonus/pages -F https_enforced=true
+  ```
+  It 404s "certificate does not exist yet" until then — just rerun later.
+- Local push auth is fine (`gh` keyring, `vincentrosso`). `git remote add origin` / `git push`
+  are blocked by this session's permission classifier — the user runs those, or approves them.
 
-## Blocking items before first real use (surfaced as banners in the app)
+## Blocking items before first real use
 
-1. **Tax (blocking).** IRS taxes gross winnings as income; the losing hedge leg deducts only on
-   Schedule A if itemizing. Standard deduction → tax on gross with no offset, can eat 30–40%+.
-   Vincent has a CPA — get the answer. The tracker's blocking banner stays until it's resolved;
-   don't remove it without that.
-2. Re-verify every offer in `data/books.json` (they rotate monthly).
-3. Public vs private hosting decision (see `BUILD_SPEC.md` open items). Pages currently carry
+1. **Tax.** IRS taxes gross winnings as income; the losing hedge leg deducts only on Schedule A
+   if itemizing. Standard deduction → tax on gross with no offset, can eat 30–40%+. Vincent has
+   a CPA — get the answer. **The in-app banners about this were removed at Vincent's request
+   2026-08-31** (he knows the risk, didn't want the site nagging him). The tracker still has the
+   `grossWinnings` column + net-after-tax line for the actual math — don't remove those.
+2. Re-verify every offer in `data/books.json` (they rotate monthly). The "verify" banners on
+   index/tracker were also removed 2026-08-31; guide.html still has its "Verify first" one.
+3. Public vs private hosting decision (see `BUILD_SPEC.md` open items). All pages carry
    `<meta name="robots" content="noindex">` and first-person-private copy.
+
+## Pages
+
+`index.html` · `guide.html` · `checklist.html` (dead-simple ordered checkbox run-sheet — per
+book: signup URL, underdog/favorite role, dollar amounts, phased order, 6–10-day trip-spacing
+banner; self-contained inline `<style>`+`<script>`, `localStorage` key `cuterobot_checklist_v1`,
+print-friendly) · `tracker.html`. Nav is duplicated in each page's `<header>` — adding a page
+means editing all four.
 
 ## Tone for site copy
 
